@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  # ルートページの指定
+  root "articles#index"
+
   # GET /articles 
   # These requests are mapped to the index action of 
   # ArticlesController.
