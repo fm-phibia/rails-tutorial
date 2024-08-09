@@ -56,3 +56,9 @@ bin/rails generate controller Articles index --skip-routes
 今回の場合は、`app/views/articlesのindex.html.erb`です。
 
 3. `app/views/articles/index.html.erb`の修正
+
+### 5 Autoloading
+Railsは`import`や`require`などを利用して他のコードを呼び出す処理を記述する必要がない。
+ただし、以下の2ケースにおいては`require`が必要。
+- `lib`ディレクトリ下でファイルをロードする場合
+- `Gemfile`内で`require: false`を設定してGemの依存関係をロードした場合  
