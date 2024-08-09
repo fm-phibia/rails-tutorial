@@ -62,3 +62,14 @@ Railsは`import`や`require`などを利用して他のコードを呼び出す�
 ただし、以下の2ケースにおいては`require`が必要。
 - `lib`ディレクトリ下でファイルをロードする場合
 - `Gemfile`内で`require: false`を設定してGemの依存関係をロードした場合  
+
+### 6.1 Generating a Model
+Railsでは、*Active Record*という機能により、ModelはアプリケーションのDBとやりとりすることができる。
+
+modelの生成には以下のコマンドを実行すればよい。
+
+```bash
+bin/rails generate model Article title:string body:text
+```
+
+※Modelの名前は単数形にします。理由はModel自体が1つのものを指すからです。
