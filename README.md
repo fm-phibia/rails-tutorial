@@ -104,3 +104,38 @@ t.timestampsは`created_at`と`updated_at`を自動的に追加してくれる�
 ```bash
 bin/rails db:migrate
 ```
+
+### 6.3 Using a Model to Interact with the Database
+Railsには、Modelを操作する機能として`console`というものがあります。
+これは対話形式のコーディング環境であり、Railsやアプリケーションコードが自動的に読み込まれます。
+
+```bash
+bin/rails console
+```
+
+コンソールが起動するので、その中で、以下のコマンドを実行すると、レコードがインサートされます。
+
+```bash
+article = Article.new(title: "Hello Rails", body: "I am on Rails!")
+# =>
+# #<Article:0x00007661080911b0
+
+article.save
+#   TRANSACTION (0.1ms)  begin transaction
+#  Article Create (1.5ms)  INSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"  [["title", "Hello Rails"], ["body", "I am on Rails!"], ["created_at", "2024-08-09 08:10:36.029861"], ["updated_at", "2024-08-09 08:10:36.029861"]]
+#  TRANSACTION (0.2ms)  commit transaction
+# => true 
+```
+
+さらにこのコンソールで、以下のコマンドを実行するとDBのarticlesテーブルに対して、IDが1であるレコードを取得してくれます。SELECT文が発行されるような感じです。
+
+```bash
+Article.find(1)
+```
+
+また、SELECTで指定なしでテーブルの中身を全て取得する場合は、以下のコマンドになります。
+この戻り値の型は「ActiveRecord::Relation」という強力な配列になっています。
+
+```bash
+Article.all
+```
