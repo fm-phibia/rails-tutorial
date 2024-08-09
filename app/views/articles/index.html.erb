@@ -2,3 +2,33 @@
 <p>Find me in app/views/articles/index.html.erb</p>
 
 <h2>Hello Rails!</h2>
+
+<h2>Articles</h2>
+
+<ul>
+  <% @articles.each do |article| %>
+    <li>
+      <%= article.title %>
+    </li>
+  <% end %>
+</ul>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Body</th>
+    <th>Create Datetime</th>
+  </tr>
+  <% @articles.each do |article| %>
+    <tr>
+      <td>
+        <%= article.title %>
+      </td>
+      <td>
+        <%= article.body %>
+      </td>
+      <td>
+        <%= article.created_at %>
+      </td>
+    </tr>
+  <% end %>
+</table>
