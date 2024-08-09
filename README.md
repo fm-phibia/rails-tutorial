@@ -46,3 +46,11 @@ rails --version
 - view
   - rubyとhtmlを混合させたViewのこと
 
+1. リクエストをマッピングするRouteを定義する
+2. Routeで定義したContollerを作成するためにコントーラー生成コマンドを実行する
+
+```bash
+bin/rails generate controller Articles index --skip-routes
+```
+
+3. 
