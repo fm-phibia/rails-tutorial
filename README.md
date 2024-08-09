@@ -73,3 +73,34 @@ bin/rails generate model Article title:string body:text
 ```
 
 ※Modelの名前は単数形にします。理由はModel自体が1つのものを指すからです。
+
+### 6.2 Database Migrations
+マイグレーションはアプリのDBの構造を変更するために利用されます。
+Railsでは、DBに依存しないためにマイグレーションの処理はRubyで記述されます。
+例）`db/migrate/20240809074911_create_articles.rb`
+
+#### Migrateファイルの見方
+
+```rb
+class CreateArticles < ActiveRecord::Migration[7.1]
+  def change
+    create_table :articles do |t|
+      t.string :title
+      t.text :body
+
+      t.timestamps
+    end
+  end
+end
+```
+
+`create_table`により、`articles`テーブルが作成されます。`create_table`ではデフォルトとして、オートインクリメントのID列が主キーとして設定されます。
+titleやtextはModelを生成するコマンド内で指定したカラムであり、migrateファイルにも記載されています。
+t.timestampsは`created_at`と`updated_at`を自動的に追加してくれる項目になります。
+
+#### Migrateの実行
+以下のコマンドを実行してマイグレーションを行います。
+
+```bash
+bin/rails db:migrate
+```
