@@ -52,5 +52,7 @@ rails --version
 ```bash
 bin/rails generate controller Articles index --skip-routes
 ```
+※ アクションで明示的にレンダリングするビューを指定しない場合、 Railsは自動的に名前に合致するViewをレンダリングします。
+今回の場合は、`app/views/articlesのindex.html/erb`です。
 
 3. 
