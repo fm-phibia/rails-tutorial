@@ -139,3 +139,13 @@ Article.find(1)
 ```bash
 Article.all
 ```
+
+### 6.4 Showing a List of Articles
+アプリケーション側からDBの値を取得し、利用していきます。
+
+Railsでは、コントローラーで「＠」を頭につけた変数をViewで利用することができます。
+前回の項の内容も踏まえると、以下のように実装することで、Articlesテーブルから取得した全件をViewに渡すことが可能になります。
+
+```rb
+@articles = Article.all
+```
