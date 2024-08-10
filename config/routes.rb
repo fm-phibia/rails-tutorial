@@ -2,13 +2,15 @@ Rails.application.routes.draw do
   # ルートページの指定
   root "articles#index"
 
-  # GET /articles 
-  # These requests are mapped to the index action of 
-  # ArticlesController.
-  get "/articles", to: "articles#index"
+  # 全てのarticleのルートを追加する
+  resources :articles
+  # # GET /articles 
+  # # These requests are mapped to the index action of 
+  # # ArticlesController.
+  # get "/articles", to: "articles#index"
 
-  # /articles/[id] とすることで、showページに遷移させる
-  get "/articles/:id", to: "articles#show"
+  # # /articles/[id] とすることで、showページに遷移させる
+  # get "/articles/:id", to: "articles#show"
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 

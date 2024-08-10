@@ -164,3 +164,7 @@ ERBタグには以下の2つが存在する
 ```rb
 get "/articles/:id", to: "articles#show"
 ```
+
+### 7.2 Resourceful Routing
+リソースのコレクションに対する全ての従来のルートをマッピングする`resources`ルートがRailsには存在する。
+
