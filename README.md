@@ -168,3 +168,21 @@ get "/articles/:id", to: "articles#show"
 ### 7.2 Resourceful Routing
 リソースのコレクションに対する全ての従来のルートをマッピングする`resources`ルートがRailsには存在する。
 
+以下のコマンドを実行すると、ルートを確認できる。
+
+```bash
+bin/rails routes
+```
+
+`resources`は、URLやpathヘルパーも設定してくれます。
+上記のコマンドで表示される"Prefix"の値に"_url"や"_path"を結合したものがヘルパーになる。
+例えば、上記コマンドの中に以下の行がある。
+
+| Prefix | Verb | URI Pattern | Controller#Action | 
+| --- | --- | --- | --- | 
+| edit_article | GET  | /articles/:id/edit(.:format) | articles#edit | 
+
+ここでPrefixのedit_articleに_pathを結合した`edit_article_path`を利用すると、URL Patternにある`/articles/#{article.id}/edit`への遷移するためのヘルパーになる。
+したがって、html.erbファイルの中で遷移先に`edit_article_path(article)`と実装するだけで、上記のpathへの遷移とすることができる
+
+※実際の実装側は、`article_path`で`/articles/#{article.id}`へのヘルパーを利用した実装を行なった。
