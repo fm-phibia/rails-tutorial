@@ -190,3 +190,12 @@ bin/rails routes
 #### link_toヘルパー
 link_toはさらに応用的なヘルパーです。
 第1引数には「リンクテキスト」、第2引数には「リンク」を記述することができます。
+第2引数にはオブジェクトを渡すことができ、その場合、適当なpathヘルパーが呼び出されます。
+例えばarticleを渡すと、article_path(article)が代わりに呼び出されるようになります。
+
+また、アクションを配列として、第2引数に渡すことで、Pathヘルパーを呼び出すことができます。
+
+```rb
+link_to "編集" [:edit, article]
+# link_to "編集" edit_article_path(article) と同等
+```
