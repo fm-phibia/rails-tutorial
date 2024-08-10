@@ -159,3 +159,8 @@ ERBタグには以下の2つが存在する
   - タグの中に実装したRubyのソースコード(変数)をHTMLの文字列として出力することができる
 
 ### 7.1 Showing a Single Article
+
+以下のように実装することで、「/articles/[id] 」とすることで、「ArticlesController」のshowに遷移することができるようになる
+```rb
+get "/articles/:id", to: "articles#show"
+```
