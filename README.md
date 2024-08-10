@@ -186,3 +186,7 @@ bin/rails routes
 したがって、html.erbファイルの中で遷移先に`edit_article_path(article)`と実装するだけで、上記のpathへの遷移とすることができる
 
 ※実際の実装側は、`article_path`で`/articles/#{article.id}`へのヘルパーを利用した実装を行なった。
+
+#### link_toヘルパー
+link_toはさらに応用的なヘルパーです。
+第1引数には「リンクテキスト」、第2引数には「リンク」を記述することができます。
