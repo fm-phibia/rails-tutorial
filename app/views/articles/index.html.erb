@@ -21,7 +21,9 @@
   <% @articles.each do |article| %>
     <tr>
       <td>
-        <%= article.title %>
+        <a href="/articles/<%= article.id %>">
+          <%= article.title %>
+        </a>
       </td>
       <td>
         <%= article.body %>

@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   # ArticlesController.
   get "/articles", to: "articles#index"
 
+  # /articles/[id] とすることで、showページに遷移させる
+  get "/articles/:id", to: "articles#show"
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
