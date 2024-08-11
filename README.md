@@ -218,3 +218,9 @@ render: リクエストはそのまま、ビューのレンダリングだけ行
 
 form_withヘルパーメソッドはフォームビルダーをインスタンス化します。
 form_withブロック内で、フォームビルダーでlabelやtext_fieldなどのメソッドを呼び出して、適切なフォーム要素を出力します。
+
+#### 7.3.2 Using Strong Parameters
+フォームデータは、ルートパラメータと一緒に`params`ハッシュの中に設置されます。
+`create`アクションは、`params[:article][:title]`からarticleのタイトルに、`params[:article][:body]`からarticleの本文にアクセスできます。
+セキュリティの観点で、直接`params[:article]`にアクセスすることはできないようになっています。
+パラメータをフィルタリングするためのRailsの機能として、Strong Parameterという、強力な型付けのようなものが存在する。
