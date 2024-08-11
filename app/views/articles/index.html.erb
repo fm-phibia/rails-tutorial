@@ -29,6 +29,9 @@
       <td>
         <%= article.created_at %>
       </td>
+      <td>
+        <%= link_to "Edit", edit_article_path(article) %>
+      </td>
     </tr>
   <% end %>
 </table>

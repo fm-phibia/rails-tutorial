@@ -239,3 +239,14 @@ presenceは必須入力、lengthはその長さを指定することができま
 ここで、ActiveRecordは各テーブルのカラムを自動的に取得することができるため、明示的にtitleやbodyの属性を定義する必要はありません。
 
 また、`full_messages_for`メソッドは引数で指定した属性のユーザフレンドリーなエラーメッセージの配列を返却します。
+
+## 7.4 Updating an Article
+大体Createと同じ処理になる
+### 7.4.1 Using Partials to Share View Code
+部分的に共有できるビューを作成する。
+共有ビューは、`_form.html.erb`のように`_`始まりのページ名にします。
+これを呼び出すには、呼び出し元で以下のように実装します。ここで、`_`が不要になることに注意します。
+
+```rb
+<%= render "form", article: @article %>
+```
