@@ -250,3 +250,15 @@ presenceは必須入力、lengthはその長さを指定することができま
 ```rb
 <%= render "form", article: @article %>
 ```
+
+## 7.5 Deleting an Article
+以下のようにdataオプションにTurboという属性を付与できます。
+`turbo_method`ではリクエスト種別をDELETEにし、
+`turbo_confirm`ではリクエスト前にダイアログを表示します。
+そのダイアログで「キャンセル」が選択されると、リクエストは実行されません。
+```rb
+<%= link_to "Destroy", article_path(@article), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %>
+```
