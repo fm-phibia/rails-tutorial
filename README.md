@@ -199,3 +199,16 @@ link_toはさらに応用的なヘルパーです。
 link_to "編集" [:edit, article]
 # link_to "編集" edit_article_path(article) と同等
 ```
+
+### 7.3 Creating a New Article
+DBへレコードを追加するには、コントローラの`new`アクションや`create`アクションが一般的に利用されます。
+`new`アクションはインスタンス化するが、保存はしません。
+`new`アクションはnew.html.erbをレンダリングします。
+new.html.ercはフォームを表示する画面とします。
+
+`create`アクションは、タイトルとボディに値を入れて、インスタンス化します。
+その後、articleを保存し、/articles/#{article.id}にリダイレクトするように実装します。
+保存に失敗すると、422:unprocessable-entity
+
+redirect_to: 新しくリクエストを行う
+render: リクエストはそのまま、ビューのレンダリングだけ行う
