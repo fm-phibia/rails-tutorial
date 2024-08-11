@@ -224,3 +224,16 @@ form_withブロック内で、フォームビルダーでlabelやtext_fieldな�
 `create`アクションは、`params[:article][:title]`からarticleのタイトルに、`params[:article][:body]`からarticleの本文にアクセスできます。
 セキュリティの観点で、直接`params[:article]`にアクセスすることはできないようになっています。
 パラメータをフィルタリングするためのRailsの機能として、Strong Parameterという、強力な型付けのようなものが存在する。
+
+### 7.3.3 Validations and Displaying Error Messages
+modelオブジェクトのValidationの設定は、modelクラス内に設定することができます。
+
+```rb
+class Article < ApplicationRecord
+  validates :title, presence: true
+  validates :body, presence: true, length: { minimum: 10 }
+end
+```
+
+presenceは必須入力、lengthはその長さを指定することができます。
+ここで、ActiveRecordは各テーブルのカラムを自動的に取得することができるため、明示的にtitleやbodyの属性を定義する必要はありません。
