@@ -8,10 +8,15 @@ class ArticlesController < ApplicationController
   end
 
   def new
+    # 空のarticleインスタンスを生成する
     @article = Article.new
   end
 
   def create
+    ## articles#create
+    # POST /articles
+    
+    # article_paramsでtitleやbodyを取得したarticleインスタンスを生成する
     @article = Article.new(article_params)
 
     if @article.save
