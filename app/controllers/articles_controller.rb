@@ -30,6 +30,23 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def edit
+    # GET /articles/:id/edit
+    @article = Article.find(params[:id])
+  end
+
+  def update
+    # PATCH  /articles/:id
+    # PUT    /articles/:id
+    @article = Article.find(params[:id])
+
+    if @article.update(article_params)
+      redirect_to @article
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   private
     def article_params
       params.require(:article).permit(:title, :body)
