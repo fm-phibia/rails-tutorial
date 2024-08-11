@@ -1,4 +1,8 @@
 class ArticlesController < ApplicationController
+
+  # GH Codespacesだとドメインがlocalhostではなくなり、CORSエラーになるため、以下の行を追加
+  skip_before_action :verify_authenticity_token, if: -> { Rails.env.development? }
+
   def index
     @articles = Article.all
   end
