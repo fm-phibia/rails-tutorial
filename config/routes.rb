@@ -3,7 +3,11 @@ Rails.application.routes.draw do
   root "articles#index"
 
   # 全てのarticleのルートを追加する
-  resources :articles
+  resources :articles do
+    # 全てのarticleに対して、全てのcommentのルートを追加する
+    resources :comments
+  end
+
   # # GET /articles 
   # # These requests are mapped to the index action of 
   # # ArticlesController.
