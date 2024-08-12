@@ -298,3 +298,7 @@ articlesにもcommentsにも`_form.html.erb`が存在していますが、articl
 ```bash
 bin/rails generate migration AddStatusToArticles status:string
 ```
+
+### Concernの実装
+さて、この状態では、articleもcommentもarchivedだと表示されない、という処理が重複してしまいます。
+Concernはこういった**重複した関心事**を切り出す機能になります。
