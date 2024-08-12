@@ -289,3 +289,12 @@ form_withヘルパーを使用するが、今回は引数をモデルではな�
 articlesにもcommentsにも`_form.html.erb`が存在していますが、articlesの中のViewからcommentsの方の`_form`を呼び出す際は、`comments/form`と、ディレクトリパスを指定する必要があります。
 
 また、`@article`はコントローラーにおいて、インスタンス化されているため、`comments/_form.html.erb`で直接参照することが可能になります。
+
+## 9.3 Using Concerns
+`Concerns`とは、巨大になったControllerや Modelを理解・管理しやすくする機能です。
+
+### Modelへのカラム追加
+以下のコマンドで、Articleにstatusというカラムを追加できます。
+```bash
+bin/rails generate migration AddStatusToArticles status:string
+```

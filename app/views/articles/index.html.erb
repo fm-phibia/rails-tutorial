@@ -6,11 +6,15 @@
 <h2>Articles</h2>
 
 <ul>
-  <% @articles.each do |article| %>
+  <%
+=begin%>
+ <% @articles.each do |article| %>
     <li>
       <%= article.title %>
     </li>
-  <% end %>
+  <% end %> 
+<%
+=end%>
 </ul>
 <table>
   <tr>
@@ -19,20 +23,22 @@
     <th>Create Datetime</th>
   </tr>
   <% @articles.each do |article| %>
-    <tr>
-      <td>
-        <%= link_to article.title, article %>
-      </td>
-      <td>
-        <%= article.body %>
-      </td>
-      <td>
-        <%= article.created_at %>
-      </td>
-      <td>
-        <%= link_to "Edit", edit_article_path(article) %>
-      </td>
-    </tr>
+    <% unless article.archived? %>
+      <tr>
+        <td>
+          <%= link_to article.title, article %>
+        </td>
+        <td>
+          <%= article.body %>
+        </td>
+        <td>
+          <%= article.created_at %>
+        </td>
+        <td>
+          <%= link_to "Edit", edit_article_path(article) %>
+        </td>
+      </tr>
+    <% end %>
   <% end %>
 </table>
 <br>
