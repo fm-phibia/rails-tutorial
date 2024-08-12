@@ -277,3 +277,9 @@ bin/rails generate model Comment commenter:string body:text article:references
 `show.html.erb`に各articleの内容が表示されるが、その下にコメントを書けるようにしていきます。
 form_withヘルパーを使用するが、今回は引数をモデルではなく、配列としています。
 配列を利用することで、`/article/1/comment`のようなネストされたルーティングを実現することが可能になります。
+
+## 9.1 Rendering Partial Collections
+部分テンプレートを作成して、リファクタしていきます。
+`render`で、コレクション（配列など）を渡すと、それを全てループで取り出してレンダリングしてくれます。
+今回`@article.comments`を利用しましたが、これは1つ1つのcommentとして取り出されます。
+通常、`render`は第1引数で、部分テンプレの名前を指定しますが、今回はコレクション名から対象が[comment]であることが、認識できるため、部分テンプレ名の指定を省略できています。
