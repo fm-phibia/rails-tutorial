@@ -272,3 +272,8 @@ bin/rails generate model Comment commenter:string body:text article:references
 
 この場合`t.references`型の`article`というカラムが追加され、これは、`article`モデルのIDを外部キーとして設定されるということです。
 さらにarticleは複数のcommentを持つことをarticleモデルに宣言しておく必要があります。
+
+## 8.4 Generating a Controller
+`show.html.erb`に各articleの内容が表示されるが、その下にコメントを書けるようにしていきます。
+form_withヘルパーを使用するが、今回は引数をモデルではなく、配列としています。
+配列を利用することで、`/article/1/comment`のようなネストされたルーティングを実現することが可能になります。
