@@ -1,4 +1,8 @@
 class CommentsController < ApplicationController
+
+    # GH Codespacesだとドメインがlocalhostではなくなり、CORSエラーになるため、以下の行を追加
+    skip_before_action :verify_authenticity_token, if: -> { Rails.env.development? }
+
     def create
         # 対象となるarticleを取得し、インスタンス化
         @article = Article.find(params[:article_id])
