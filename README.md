@@ -283,3 +283,9 @@ form_withヘルパーを使用するが、今回は引数をモデルではな�
 `render`で、コレクション（配列など）を渡すと、それを全てループで取り出してレンダリングしてくれます。
 今回`@article.comments`を利用しましたが、これは1つ1つのcommentとして取り出されます。
 通常、`render`は第1引数で、部分テンプレの名前を指定しますが、今回はコレクション名から対象が[comment]であることが、認識できるため、部分テンプレ名の指定を省略できています。
+
+## 9.2 Rendering a Partial Form
+同様にcommentのフォームも部分テンプレ化していきます。
+articlesにもcommentsにも`_form.html.erb`が存在していますが、articlesの中のViewからcommentsの方の`_form`を呼び出す際は、`comments/form`と、ディレクトリパスを指定する必要があります。
+
+また、`@article`はコントローラーにおいて、インスタンス化されているため、`comments/_form.html.erb`で直接参照することが可能になります。
