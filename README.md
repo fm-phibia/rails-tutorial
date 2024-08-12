@@ -262,3 +262,13 @@ presenceは必須入力、lengthはその長さを指定することができま
                     turbo_confirm: "Are you sure?"
                   } %>
 ```
+
+##
+以下のようにモデル生成時に`{他のモデル名}:references`をつけると、`{他モデル名}`のIDを外部キーとして保持するカラムが生成したモデルに付与されます。
+
+```bash
+bin/rails generate model Comment commenter:string body:text article:references
+```
+
+この場合`t.references`型の`article`というカラムが追加され、これは、`article`モデルのIDを外部キーとして設定されるということです。
+さらにarticleは複数のcommentを持つことをarticleモデルに宣言しておく必要があります。
