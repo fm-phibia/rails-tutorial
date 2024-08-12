@@ -3,6 +3,9 @@ class ArticlesController < ApplicationController
   # GH Codespacesだとドメインがlocalhostではなくなり、CORSエラーになるため、以下の行を追加
   skip_before_action :verify_authenticity_token, if: -> { Rails.env.development? }
 
+  # indexとshowアクション以外ではBasic認証が必要になります。
+  http_basic_authenticate_with name: "rails", password: "secret", except: [:index, :show]
+
   def index
     @articles = Article.all
   end

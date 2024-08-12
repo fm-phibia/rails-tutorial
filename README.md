@@ -305,3 +305,7 @@ Concernはこういった**重複した関心事**を切り出す機能になり
 
 Validationを切り出す場合、Validation自体がクラス単位で呼び出されるメソッドであるため、実装がやや複雑になります。
 そのため、Concernは`ActiveSupport::Concern`を継承することで、実装を簡単にしていきます。
+
+## 11.1 Basic Authentication
+ユーザが認証していない場合、アクセスを拒否する設定をすることができる。
+`http_basic_authenticate_with`メソッドを設定します。
